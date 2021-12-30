@@ -130,7 +130,7 @@ export default function Signup({ navigation }) {
     const suppliedMonth = String(mm + 1);
     const suppliedDay = String(dd);
 
-    console.log
+    console.log(formattedDate);
 
     if (
       (parseInt(suppliedYear) === parseInt(todaysYear) &&
@@ -149,7 +149,7 @@ export default function Signup({ navigation }) {
   }
 
   return (
-    <View style={{ backgroundColor: 'black', flex: 1, padding: 10 }}>
+    <View style={{ backgroundColor: '#272932', flex: 1, padding: 10 }}>
       <View
         style={{
           justifyContent: 'center',
@@ -196,7 +196,7 @@ export default function Signup({ navigation }) {
                 paddingTop: 10,
                 paddingBottom: 10,
                 width: '100%',
-                color: '#ea3788',
+                color: '#cb48b7',
               }}
             />
             {nameValid ? (
@@ -244,7 +244,7 @@ export default function Signup({ navigation }) {
                 paddingTop: 10,
                 paddingBottom: 10,
                 width: '100%',
-                color: '#ea3788',
+                color: '#cb48b7',
               }}
             />
             {phoneErrorMessage ? (
@@ -299,7 +299,7 @@ export default function Signup({ navigation }) {
                 paddingTop: 10,
                 paddingBottom: 10,
                 width: '100%',
-                color: '#ea3788',
+                color: '#cb48b7',
               }}
             />
             {dateValid ? (

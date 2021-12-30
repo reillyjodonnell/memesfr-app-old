@@ -7,7 +7,7 @@
  */
 
 import React from 'react';
-import type {Node} from 'react';
+import { Node } from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -25,9 +25,9 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-import {Branding} from './src/Components/WelcomeScreen/Branding';
-import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import { Branding } from './src/Components/WelcomeScreen/Branding';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import WelcomeScreen from './src/Components/WelcomeScreen/WelcomeScreen';
 import Signup from './src/Components/WelcomeScreen/Signup';
 import Login from './src/Components/WelcomeScreen/Login';
@@ -37,7 +37,7 @@ const MemesfrHeader = () => {
   return <View style={styles.header}></View>;
 };
 
-const Section = ({children, title}): Node => {
+const Section = ({ children, title }) => {
   const isDarkMode = useColorScheme() === 'dark';
   return (
     <View style={styles.sectionContainer}>
@@ -47,7 +47,8 @@ const Section = ({children, title}): Node => {
           {
             color: isDarkMode ? Colors.white : Colors.black,
           },
-        ]}>
+        ]}
+      >
         {title}
       </Text>
       <Text
@@ -56,7 +57,8 @@ const Section = ({children, title}): Node => {
           {
             color: isDarkMode ? Colors.light : Colors.dark,
           },
-        ]}>
+        ]}
+      >
         {children}
       </Text>
     </View>
@@ -65,25 +67,28 @@ const Section = ({children, title}): Node => {
 
 const BoilerPlateCode = () => {
   return (
-    <SafeAreaView style={{backgroundColor: 'black'}}>
+    <SafeAreaView style={{ backgroundColor: '#272932' }}>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
-        style={{backgroundColor: 'black'}}>
+        style={{ backgroundColor: '#272932' }}
+      >
         <View
           style={{
-            backgroundColor: 'black',
+            backgroundColor: '#272932',
             display: 'flex',
             flex: 1,
-          }}>
-          <Text style={{color: 'white'}}>Memesfr</Text>
+          }}
+        >
+          <Text style={{ color: 'white' }}>Memesfr</Text>
         </View>
 
         <Header />
         <View
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
+          }}
+        >
           <Section title="Step One">
             Edit <Text style={styles.highlight}>App.js</Text> to change this
             screen and then come back to see your edits.
@@ -108,7 +113,7 @@ const Test = () => {
   return (
     <>
       <Castle />
-      <Text style={{fontSize: 30, fontWeight: '700', color: 'white'}}>
+      <Text style={{ fontSize: 30, fontWeight: '700', color: 'white' }}>
         Memesfr
       </Text>
     </>
@@ -117,7 +122,7 @@ const Test = () => {
 
 const Stack = createNativeStackNavigator();
 
-const App: () => Node = () => {
+const App = () => {
   // const isDarkMode = useColorScheme() === 'dark';
   return (
     <NavigationContainer>
@@ -129,12 +134,13 @@ const App: () => Node = () => {
           // ),
           // headerBackVisible
           headerBackTitleVisible: true,
-          headerStyle: {Colors: 'white', backgroundColor: 'black'},
+          headerStyle: { Colors: 'white', backgroundColor: '#272932' },
           headerTitle: () => <Test />,
-        }}>
+        }}
+      >
         <Stack.Screen
           name="Welcome"
-          options={{headerShown: false}}
+          options={{ headerShown: false }}
           component={WelcomeScreen}
         />
         <Stack.Screen name="Signup" component={Signup} />
