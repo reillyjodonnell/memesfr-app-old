@@ -25,13 +25,8 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-import { Branding } from './src/Components/WelcomeScreen/Branding';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import WelcomeScreen from './src/Components/WelcomeScreen/WelcomeScreen';
-import Signup from './src/Components/WelcomeScreen/Signup';
-import Login from './src/Components/WelcomeScreen/Login';
-import Castle from './Assets/Castle.svg';
+import AuthProvider from './src/Contexts/AuthContext';
+import Memesfr from './src/Components/Memesfr';
 
 const MemesfrHeader = () => {
   return <View style={styles.header}></View>;
@@ -109,44 +104,11 @@ const BoilerPlateCode = () => {
   );
 };
 
-const Test = () => {
-  return (
-    <>
-      <Castle />
-      <Text style={{ fontSize: 30, fontWeight: '700', color: 'white' }}>
-        Memesfr
-      </Text>
-    </>
-  );
-};
-
-const Stack = createNativeStackNavigator();
-
 const App = () => {
-  // const isDarkMode = useColorScheme() === 'dark';
   return (
-    <NavigationContainer>
-      <Stack.Navigator
-        screenOptions={{
-          headerBackTitle: 'Cancel',
-          // headerLeft: () => (
-          //   <Text style={{color: 'white', fontSize: 15}}>Cancel</Text>
-          // ),
-          // headerBackVisible
-          headerBackTitleVisible: true,
-          headerStyle: { Colors: 'white', backgroundColor: '#272932' },
-          headerTitle: () => <Test />,
-        }}
-      >
-        <Stack.Screen
-          name="Welcome"
-          options={{ headerShown: false }}
-          component={WelcomeScreen}
-        />
-        <Stack.Screen name="Signup" component={Signup} />
-        <Stack.Screen name="Login" component={Login} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <AuthProvider>
+      <Memesfr />
+    </AuthProvider>
   );
 };
 

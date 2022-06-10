@@ -1,10 +1,23 @@
 import React from 'react';
-import { Pressable, Text, View } from 'react-native';
+import { Pressable, Text, View, StyleSheet, Image } from 'react-native';
 import { Branding } from './Branding';
+import Google from '../../../Assets/google.svg';
+import Twitter from '../../../Assets/twitter.svg';
+import Facebook from '../../../Assets/Facebook.svg';
+import SignInButton from './SignInButton';
+
+import colors from '../../theme';
 
 export default function WelcomeScreen({ navigation }) {
   return (
-    <View style={{ backgroundColor: '#272932', flex: 1, padding: 20 }}>
+    <View
+      style={{
+        backgroundColor: colors.bg,
+        flex: 1,
+        padding: 20,
+        display: 'flex',
+      }}
+    >
       <View>
         <Branding />
       </View>
@@ -17,66 +30,100 @@ export default function WelcomeScreen({ navigation }) {
       >
         <Text
           style={{
-            color: 'white',
+            color: colors.textPrimary,
             fontWeight: '700',
-            fontSize: 40,
+            fontSize: 36,
             width: '100%',
             textAlign: 'center',
             marginTop: 70,
-            paddingBottom: 90,
+            marginBottom: 70,
           }}
         >
           Dank memes await you, Memelord.
         </Text>
-        <Pressable
-          style={{ width: '100%' }}
-          onPress={() => navigation.navigate('Signup')}
+        <View
+          style={{ display: 'flex', flex: 1, marginTop: 20, width: '100%' }}
         >
-          <View
+          <SignInButton
+            onPress={() => window.alert('google')}
+            Icon={Google}
+            title="Google"
+          />
+          <SignInButton
+            onPress={() => window.alert('Twitter')}
+            Icon={Twitter}
+            title="Twitter"
+          />
+          <SignInButton
+            onPress={() => window.alert('Fbook')}
+            Icon={Facebook}
+            title="Facebook"
+          />
+
+          <Text
             style={{
+              padding: 10,
+              width: '100%',
               justifyContent: 'center',
               alignItems: 'center',
-              marginTop: 80,
-              padding: 20,
-              backgroundColor: '#cb48b7',
-              width: '100%',
               textAlign: 'center',
-              borderRadius: 30,
+              color: colors.textPrimary,
             }}
           >
-            <Text
+            Or
+          </Text>
+
+          <Pressable
+            style={{ width: '100%', padding: 10 }}
+            onPress={() => navigation.navigate('Create Account')}
+          >
+            <View
               style={{
-                color: 'white',
-                fontSize: 20,
-                fontWeight: '800',
+                justifyContent: 'center',
+                alignItems: 'center',
+                padding: 16,
+                backgroundColor: colors.accentBg,
+                width: '100%',
+                textAlign: 'center',
+                borderRadius: 30,
               }}
             >
-              Create Account
-            </Text>
-          </View>
-        </Pressable>
+              <Text
+                style={{
+                  color: colors.textPrimary,
+                  fontSize: 18,
+                  fontWeight: '700',
+                }}
+              >
+                Create Account
+              </Text>
+            </View>
+          </Pressable>
+        </View>
+
         <View
           style={{
             alignItems: 'flex-start',
             justifyContent: 'center',
             width: '100%',
-            paddingTop: 20,
             textAlign: 'left',
           }}
         >
-          <Text style={{ color: '#eeeeee66', textAlign: 'left' }}>
+          <Text style={{ color: colors.textSecondary, textAlign: 'left' }}>
             By signing up you agree to our{' '}
-            <Text style={{ color: '#cb48b7' }}>Terms</Text>,{' '}
-            <Text style={{ color: '#cb48b7' }}>Cookies</Text>, &{' '}
-            <Text style={{ color: '#cb48b7' }}>Community Rules</Text>
+            <Text style={{ color: colors.accent }}>Terms</Text>,{' '}
+            <Text style={{ color: colors.accent }}>Cookies</Text>, &{' '}
+            <Text style={{ color: colors.accent }}>Community Rules</Text>
           </Text>
         </View>
       </View>
-      <View style={{ justifyContent: 'center', marginBottom: 20 }}>
-        <Text style={{ fontSize: 16, color: '#eeeeee66' }}>
-          Already have an account?{' '}
+      <View
+        style={{ justifyContent: 'center', marginTop: 20, marginBottom: 20 }}
+      >
+        <Text style={{ fontSize: 16, color: colors.textSecondary }}>
+          Have an account?{' '}
           <Text
-            style={{ fontSize: 16, color: '#cb48b7' }}
+            style={{ fontSize: 16, color: colors.accent }}
             onPress={() => navigation.navigate('Login')}
           >
             Log in
