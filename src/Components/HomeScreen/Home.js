@@ -16,14 +16,19 @@ export default function Home({ navigation }) {
     { title: 'Meme4', url: Meme4, type: 'video' },
   ];
 
-
   const CardSideBar = () => {
     return (
-      <View style={{position: 'absolute', right: 0, bottom: 0, height: '100%', backgroundColor: 'red'}}>
-
-      </View>
-    )
-  }
+      <View
+        style={{
+          position: 'absolute',
+          right: 0,
+          bottom: 0,
+          height: '100%',
+          backgroundColor: 'red',
+        }}
+      ></View>
+    );
+  };
 
   return (
     <View
